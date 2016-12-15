@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>{{title}} - microblog</title>
+    {% else %}
+        <title>ksheng - microblog</title>
+    {% endif %}
+</head>
+<body>
+    {% if user %}
+        <h1>Hello, {{user.nickname}}!</h1>
+        <h1>来看看你的爬虫吧~</h1>
+    {% else %}
+        <h1>Hello,ksheng!</h1>
+    {% endif %}
+
+    {% for post in posts %}
+{#        <p>标题 : <b>{{post.title}}</b></p>#}
+{#        <p>链接 : <b>{{post.contentUrl}}</b></p>#}
+{#        <img src={{post.imgUrl}}></img>#}
+
+        <div>
+                <!--栏目链接-->
+                                <div class="mod-thumb">
+                    <a  title={{post.title}} href={{post.contentUrl}} target="_blank">
+                        <img  alt="跟俞军聊了三个小时产品（一）：把12条产品军规压缩到3条" src={{post.imgUrl}}>
+                    </a>
+                </div>
+
+                <div class="mob-ctt">
+                    <h2><a href={{post.contentUrl}}>{{ post.title }}</a></h2>
+                </div>
+            </div>
+    {% endfor %}
+
+</body>
+</html>
+
